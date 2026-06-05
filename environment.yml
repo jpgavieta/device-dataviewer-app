@@ -1,0 +1,28 @@
+# mamba <or conda> env create -f environment.yml
+# mamba <or conda> activate multidevice_dashboard
+
+name: multidevice_dashboard
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pandas
+  - numpy
+  - requests
+  - tzfpy # Adds timezone info based on lat/lon coordinates
+
+  # Dashboard & plotting 
+  - panel>=1.4
+  - holoviews>=1.18
+  - hvplot>=0.10
+  - geoviews>=1.11
+  - bokeh>=3.3
+  - plotly>=5.20          
+
+  # Geospatial
+  - cartopy              # GeoViews hard dependency for projections
+  - pyproj
+  - shapely
+
+  # Dev
+  - watchfiles           # enables --autoreload in panel serve

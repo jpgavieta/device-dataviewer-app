@@ -1,0 +1,5 @@
+# Ignore all Jupyter notebooks in the notebooks folder
+# Note: If there's a notebook worth keeping later, manually force-add it by running `git add -f notebooks/<whatever_it_is>.ipynb`
+
+notebooks/*.ipynb
+notebooks/.ipynb_checkpoints/

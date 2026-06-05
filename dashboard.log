@@ -1,0 +1,88 @@
+2026-06-05 10:21:44,478 Starting Bokeh server version 3.9.0 (running on Tornado 6.5.6)
+2026-06-05 10:21:44,480 User authentication hooks NOT provided (default user enabled)
+2026-06-05 10:21:44,480 These host origins can connect to the websocket: ['localhost:5006']
+2026-06-05 10:21:44,480 Patterns are:
+2026-06-05 10:21:44,481   [('/favicon.ico',
+2026-06-05 10:21:44,481     <class 'bokeh.server.views.ico_handler.IcoHandler'>,
+2026-06-05 10:21:44,481     {'app': <bokeh.server.tornado.BokehTornado object at 0x76adf7ddaf30>}),
+2026-06-05 10:21:44,481    ('/app/ws',
+2026-06-05 10:21:44,481     <class 'panel.io.server.WSHandler'>,
+2026-06-05 10:21:44,481     {'application_context': <bokeh.server.contexts.ApplicationContext object at 0x76adf79efef0>,
+2026-06-05 10:21:44,481      'bokeh_websocket_path': '/app/ws',
+2026-06-05 10:21:44,481      'compression_level': None,
+2026-06-05 10:21:44,481      'mem_level': None}),
+2026-06-05 10:21:44,481    ('/app/metadata',
+2026-06-05 10:21:44,481     <class 'bokeh.server.views.metadata_handler.MetadataHandler'>,
+2026-06-05 10:21:44,481     {'application_context': <bokeh.server.contexts.ApplicationContext object at 0x76adf79efef0>,
+2026-06-05 10:21:44,481      'bokeh_websocket_path': '/app/ws'}),
+2026-06-05 10:21:44,481    ('/app/autoload.js',
+2026-06-05 10:21:44,481     <class 'panel.io.server.AutoloadJsHandler'>,
+2026-06-05 10:21:44,481     {'application_context': <bokeh.server.contexts.ApplicationContext object at 0x76adf79efef0>,
+2026-06-05 10:21:44,481      'bokeh_websocket_path': '/app/ws'}),
+2026-06-05 10:21:44,481    ('/app/?',
+2026-06-05 10:21:44,481     <class 'panel.io.server.DocHandler'>,
+2026-06-05 10:21:44,481     {'application_context': <bokeh.server.contexts.ApplicationContext object at 0x76adf79efef0>,
+2026-06-05 10:21:44,481      'bokeh_websocket_path': '/app/ws'}),
+2026-06-05 10:21:44,481    ('/app/static/(.*)',
+2026-06-05 10:21:44,481     <class 'bokeh.server.views.static_handler.StaticHandler'>,
+2026-06-05 10:21:44,481     {}),
+2026-06-05 10:21:44,481    ('/components/(.*)',
+2026-06-05 10:21:44,481     <class 'panel.io.server.ComponentResourceHandler'>,
+2026-06-05 10:21:44,481     {}),
+2026-06-05 10:21:44,481    ('/?',
+2026-06-05 10:21:44,481     <class 'panel.io.server.RootHandler'>,
+2026-06-05 10:21:44,481     {'applications': {'/app': <bokeh.server.contexts.ApplicationContext object at 0x76adf79efef0>},
+2026-06-05 10:21:44,482      'index': '/home/yul/miniforge3/envs/multidevice_dashboard/lib/python3.12/site-packages/panel/io/../_templates/index.html',
+2026-06-05 10:21:44,482      'prefix': '',
+2026-06-05 10:21:44,482      'use_redirect': True}),
+2026-06-05 10:21:44,482    ('/static/extensions/(.*)',
+2026-06-05 10:21:44,482     <class 'bokeh.server.views.multi_root_static_handler.MultiRootStaticHandler'>,
+2026-06-05 10:21:44,482     {'root': {'panel': PosixPath('/home/yul/miniforge3/envs/multidevice_dashboard/lib/python3.12/site-packages/panel/dist')}}),
+2026-06-05 10:21:44,482    ('/static/(.*)',
+2026-06-05 10:21:44,482     <class 'bokeh.server.views.static_handler.StaticHandler'>)]
+2026-06-05 10:21:44,485 Bokeh app running at: http://localhost:5006/app
+2026-06-05 10:21:44,485 Starting Bokeh server with process id: 17690
+[2] Sandbox: CanCreateUserNamespace() clone() failure: EPERM
+Gtk-Message: 10:21:44.923: Failed to load module "xapp-gtk3-module"
+2026-06-05 10:21:48,011 Subprotocol header received
+2026-06-05 10:21:48,011 WebSocket connection opened
+2026-06-05 10:21:48,012 Receiver created for Protocol()
+2026-06-05 10:21:48,012 ProtocolHandler created for Protocol()
+2026-06-05 10:21:48,013 ServerConnection created
+2026-06-05 10:21:48,084 Sending pull-doc-reply from session 'Ssm8isW74OkgVrEiUIjhI0PwFtMZFFIxbRkgZuI8J5c7'
+2026-06-05 10:21:59,486 [pid 17690] 1 clients connected
+2026-06-05 10:21:59,487 [pid 17690]   /app has 1 sessions with 0 unused
+2026-06-05 10:22:14,486 [pid 17690] 1 clients connected
+2026-06-05 10:22:14,486 [pid 17690]   /app has 1 sessions with 0 unused
+2026-06-05 10:22:29,487 [pid 17690] 1 clients connected
+2026-06-05 10:22:29,487 [pid 17690]   /app has 1 sessions with 0 unused
+2026-06-05 10:22:44,491 [pid 17690] 1 clients connected
+2026-06-05 10:22:44,491 [pid 17690]   /app has 1 sessions with 0 unused
+2026-06-05 10:22:59,487 [pid 17690] 1 clients connected
+2026-06-05 10:22:59,487 [pid 17690]   /app has 1 sessions with 0 unused
+2026-06-05 10:23:14,490 [pid 17690] 1 clients connected
+2026-06-05 10:23:14,490 [pid 17690]   /app has 1 sessions with 0 unused
+2026-06-05 10:23:29,486 [pid 17690] 1 clients connected
+2026-06-05 10:23:29,486 [pid 17690]   /app has 1 sessions with 0 unused
+2026-06-05 10:23:44,487 [pid 17690] 1 clients connected
+2026-06-05 10:23:44,487 [pid 17690]   /app has 1 sessions with 0 unused
+2026-06-05 10:23:59,486 [pid 17690] 1 clients connected
+2026-06-05 10:23:59,487 [pid 17690]   /app has 1 sessions with 0 unused
+2026-06-05 10:24:14,486 [pid 17690] 1 clients connected
+2026-06-05 10:24:14,486 [pid 17690]   /app has 1 sessions with 0 unused
+2026-06-05 10:24:29,487 [pid 17690] 1 clients connected
+2026-06-05 10:24:29,487 [pid 17690]   /app has 1 sessions with 0 unused
+2026-06-05 10:24:44,492 [pid 17690] 1 clients connected
+2026-06-05 10:24:44,492 [pid 17690]   /app has 1 sessions with 0 unused
+2026-06-05 10:24:59,486 [pid 17690] 1 clients connected
+2026-06-05 10:24:59,486 [pid 17690]   /app has 1 sessions with 0 unused
+2026-06-05 10:25:14,493 [pid 17690] 1 clients connected
+2026-06-05 10:25:14,493 [pid 17690]   /app has 1 sessions with 0 unused
+2026-06-05 10:25:29,487 [pid 17690] 1 clients connected
+2026-06-05 10:25:29,488 [pid 17690]   /app has 1 sessions with 0 unused
+2026-06-05 10:25:44,487 [pid 17690] 1 clients connected
+2026-06-05 10:25:44,487 [pid 17690]   /app has 1 sessions with 0 unused
+2026-06-05 10:25:59,487 [pid 17690] 1 clients connected
+2026-06-05 10:25:59,487 [pid 17690]   /app has 1 sessions with 0 unused
+2026-06-05 10:26:14,492 [pid 17690] 1 clients connected
+2026-06-05 10:26:14,492 [pid 17690]   /app has 1 sessions with 0 unused
