@@ -33,13 +33,17 @@ def build_map(gis_df: pd.DataFrame, layers: list[tuple], title: str = ""):
     if base_df.empty:
         raise ValueError("No valid GPS coordinates to plot.")
 
-    overlay = gvts.CartoDark()
+    overlay = gvts.CartoDark().opts(
+        frame_width=900, frame_height=500, # locks the frame on the tile source
+        responsive=False
+    )
     points_added = False                          # ← track whether anything was added
 
     for data_df, color_col in layers:
         df = base_df.copy()
         if data_df is not None and color_col and color_col in data_df.columns:
             df = pd.merge(df, data_df[["datetime", color_col]], on="datetime", how="left")
+            df = df.dropna(subset=[color_col])  # ← inside the if, after the merge
 
         if color_col not in df.columns:
             continue
@@ -70,8 +74,9 @@ def build_map(gis_df: pd.DataFrame, layers: list[tuple], title: str = ""):
         raise ValueError("No valid GPS coordinates to plot.")
 
     return overlay.opts(
-        axiswise=False,                           # ← key fix
+        axiswise=False,
         frame_width=900,
         frame_height=500,
+        responsive=False,    # to fix the weird zoom bug
         title=title,
     )

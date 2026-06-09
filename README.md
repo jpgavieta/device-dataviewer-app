@@ -21,13 +21,9 @@ dataDashboard/
 |   |   └── ponyopi.py
 |   └── plots/                  # Builds generic plots 
 |       ├── map.py              
-|       ├── timeline.py         
-|       ├── heatmap.py          
+|       └── timeline.py         
 ├── notebooks/
-|   ├── sample_data/            # Raw csv only for testing any code, before implementation into the dashboard pipeline
-|   ├── scratchpad_utils.ipynb  
-|   ├── scratchpad_etl.ipynb  
-|   └── scratchpad_plots.ipynb  
+|   └── sample_data/            # Raw csv only for testing any code, before implementation into the dashboard pipeline
 └── docs/                       # Documentation for every data source (device)
     ├── Atmotube_datasheet.md
     └── etc.

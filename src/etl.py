@@ -77,15 +77,31 @@ def get_data(file_bytes: bytes, device_type: str) -> dict:
 # data["data"]["pm"]["vars"] --> ['pm2_5_ugm3_atm', 'pm10_ugm3_atm', ...]
 
 def clean_data(data: dict, selected: dict[str, list[str]]) -> dict:
+    all_selected_cols = [col for cols in selected.values() for col in cols]
+    if not all_selected_cols:
+        return data
+
+    merged = None
+    for df_key, cols in selected.items():
+        if not cols:
+            continue
+        df = data[df_key]["df"][["datetime"] + cols]
+        merged = df if merged is None else pd.merge(merged, df, on="datetime", how="outer")
+
+    if merged is None:
+        return data
+
+    valid_datetimes = set(merged.dropna(subset=all_selected_cols)["datetime"])
+
     cleaned = {}
     for df_key, contents in data.items():
-        cols = selected.get(df_key, [])
-        df = contents["df"].copy()
-        if cols:
-            df = df.dropna(subset=cols)
+        df = contents["df"]
+        clean_df = df[df["datetime"].isin(valid_datetimes)].copy()
+        # ← drop any remaining NaNs in all columns, not just selected
+        clean_df = clean_df.dropna()
         cleaned[df_key] = {
-            "df":   df,
-            "vars": contents["vars"]  # always preserve full var list
+            "df":   clean_df,
+            "vars": contents["vars"]
         }
     return cleaned
 

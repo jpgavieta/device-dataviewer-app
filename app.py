@@ -70,7 +70,9 @@ def _get_layers():
     for df_key, vars in checkboxes.items():
         selected_vars = [var for var, cb in vars.items() if cb.value]
         if selected_vars:
-            df = active[df_key]["df"] if df_key in active else data["data"][df_key]["df"]
+            if df_key not in active: # only uses actively selected data (allows for user input filtering)
+                continue
+            df = active[df_key]["df"]
             for var in selected_vars:
                 layers.append((df, var))
     return layers
@@ -80,7 +82,16 @@ def _get_active_data():
         df_key: [var for var, cb in vars.items() if cb.value]
         for df_key, vars in checkboxes.items()
     }
-    return clean_data(data["data"], selected) if clean_toggle.value else data["data"]
+    print(f"[DEBUG] clean_toggle: {clean_toggle.value}")
+    print(f"[DEBUG] selected: {selected}")
+    if clean_toggle.value:
+        cleaned = clean_data(data["data"], selected)
+        for key, val in cleaned.items():
+            orig = len(data["data"][key]["df"])
+            new  = len(val["df"])
+            print(f"[DEBUG] {key}: {orig} rows → {new} rows after clean")
+        return cleaned
+    return data["data"]
 
 def _make_checkbox(df_key, var):
     cb = pn.widgets.Checkbox(name=var, value=False)
