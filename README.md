@@ -3,7 +3,7 @@
 
 A portable Python dashboard to upload and view data, sourced from one or more devices. Deployed using Panel with a dark-mode aesthetic, featuring an interactive map and timeline graph.
 
-Expandable ETL pipeline to add additional devices later (i.e. Atmotube, Raspberry Pi Sensors [PonyoPi], FitBit, Whatsapp, etc.) supported by notebook-based development to write and test device-tailored parsers before implementing into the ETL-to-Viz pipeline.
+Expandable ETL pipeline to add more devices later (i.e. Atmotube, Raspberry Pi Sensors [PonyoPi], FitBit, Whatsapp, etc.) supported by notebook-based development to write and test device-tailored parsers before implementing into the main ETL-to-Viz pipeline.
 
 ---
 
