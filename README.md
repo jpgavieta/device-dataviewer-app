@@ -13,7 +13,6 @@ dataDashboard/
 ├── app.py                      # `panel serve app.py` to run dashboard GUI
 ├── environment.yml
 ├── src/
-|   ├── __init__.py
 |   ├── etl.py                  # Extract (uploads data), Transform (applies parser), Load CSV (returns dfs)
 |   ├── utils.py                # Incl. shared auto-detectors (i.e. JSON-blobs, UTC, lat/lon), map builder (gis_df)
 |   ├── parsers/                # Builds specific-to-device dfs
@@ -53,15 +52,26 @@ panel serve app.py
 
 3. Choose device and variables to visualize
 
-    Upload CSV (reads as bytes)
-        ↓
-    Select Device (applies parser)
-        ↓
-    Select Variables (filters columns)
-        ↓ 
-    *Optional: Clean Data (removes missing rows)
+### User flow
+Upload CSV → Select Device → Select Variables → Clean Data → View Plots
 
----
+### Technical flow
+```text
+FileInput (bytes)
+    ↓
+etl.load_csv()          # decode bytes → raw DataFrame
+    ↓
+etl.apply_parser()      # device registry → parser module → structured dfs
+    ↓                       e.g. atmotube.parse(df) → { "gis", "pm", "weather", "gas", ... }
+etl.get_data()          # returns { "gis": df, "data": { df_key: { "df", "vars" } } }
+    ↓
+app.py checkboxes       # user selects variables → layers = [ (df, var), ... ]
+    ↓
+etl.clean_data()        # (optional) drop rows with NaNs across all selected vars
+    ↓
+plots/map.py            # gis_df + layers → HoloViews overlay (GeoViews + Bokeh)
+plots/timeline.py       # layers → HoloViews overlay (hvplot line curves)
+```
 
 ## How to use notebooks? 
 
@@ -80,10 +90,10 @@ ALWAYS create and activate conda env (`multidevice_dashboard`) before running an
 
 Notes: Don't forget to `Clear Outputs` and `Restart` to clear the cache.
 
-### Adding new parser
+### Adding a new device
 
-1. Add `src/parsers/yourdevice.py` with a `parse(df)` function
-2. Import parser module and add to registry list in `src/etl.py`
+1. Add `src/parsers/yourdevice.py` with a `parse(df) -> dict` function
+2. Register it in `src/etl.py` under `PARSER_REGISTRY`
 3. Add its datasheet to `docs/`
 
 Note: Uncomment the `.gitignore` to pretend the notebook doesn't exist. 
